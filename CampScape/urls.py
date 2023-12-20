@@ -25,4 +25,4 @@ urlpatterns = [
     path('', include('Reviews.urls')),
     path('userauth', include('user.urls')),
     path('userauth/', include('django.contrib.auth.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) 
