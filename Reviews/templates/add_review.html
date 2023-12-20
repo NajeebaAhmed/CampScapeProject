@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<head>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<div class="container">
+  <div class="row">
+    <div class="col d-flex justify-content-center">
+      <div class="card text-center mb-5" style="background-color: #A1BFB0 !important; margin-top: 200px; padding-top: 1em;">
+
+        <div class="form-group">
+          <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <div class="pt-1 mb-4">
+              <button class="btn btn-secondary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<style>
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #275657;
+  }
+
+  .container {
+    flex: 1;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .card {
+    width: 350px;
+    border: none;
+    box-shadow: 5px 6px 6px 2px #E5E3D7;
+    border-radius: 12px;
+  }
+
+  .name {
+    margin-top: -21px;
+    font-size: 18px;
+  }
+
+  .fw-500 {
+    font-weight: 500 !important;
+  }
+
+  .form-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+
+  .form-group label {
+    flex-shrink: 0;
+    width: 120px;
+  }
+
+  .form-group input {
+    flex-grow: 1;
+  }
+
+
+  .rate {
+    border-bottom-right-radius: 12px;
+    border-bottom-left-radius: 12px;
+  }
+
+  .rating {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+  }
+
+  .rating>input {
+    display: none;
+  }
+
+  .rating>label {
+    position: relative;
+    width: 1em;
+    font-size: 30px;
+    font-weight: 300;
+    color: #FFD600;
+    cursor: pointer;
+  }
+
+  .rating>label::before {
+    content: "\2605";
+    position: absolute;
+    opacity: 0;
+  }
+
+  .rating>label:hover:before,
+  .rating>label:hover~label:before {
+    opacity: 1 !important
+  }
+
+  .rating>input:checked~label:before {
+    opacity: 1;
+  }
+
+  .rating:hover>input:checked~label:before {
+    opacity: 0.4;
+  }
+
+  .buttons {
+    top: 36px;
+    position: relative;
+
+  }
+
+  .btn.btn-warning.btn-block.rating-submit {
+    background-color: #A1BFB0;
+
+    /* Change the background color here */
+  }
+
+  .btn.btn-warning.btn-block.rating-submit:hover {
+    background-color: #275657;
+    border: solid 3px #fff;
+    color: #fff;
+    /* Change the hover background color here */
+  }
+
+  .rating-submit {
+    border-radius: 15px;
+    color: #fff;
+    height: 49px;
+
+  }
+</style>
+{% endblock %}

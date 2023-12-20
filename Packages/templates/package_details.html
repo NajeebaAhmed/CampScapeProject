@@ -1,0 +1,681 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<!-- Include the required JavaScript and CSS files -->
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.3/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.3/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.5.3/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+    <script src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0/css/bootstrap-select.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>$(function () {
+            $("#button").click(function () {
+                $("#button").addClass("onclic", 250, validate);
+            });
+
+            function validate() {
+                setTimeout(function () {
+                    $("#button").removeClass("onclic");
+                    $("#button").addClass("validate", 450, callback);
+                }, 2250);
+            }
+            function callback() {
+                setTimeout(function () {
+                    $("#button").removeClass("validate");
+                }, 1250);
+            }
+        });</script>
+
+</head>
+<div class="container">
+    <!-- product -->
+    <div class="product-content product-wrap clearfix product-deatil">
+        <div class="row">
+
+            <div id="slideshow" class="carousel slide col-md-6 col-sm-12 col-xs-12" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#slideshow" data-slide-to="0" class="active"></li>
+                    <li data-target="#slideshow" data-slide-to="1"></li>
+                    <li data-target="#slideshow" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="{{ package.image2.url }}" alt="Image 1" width="600" height="800">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ package.image3.url }}" alt="Image 2" width="600" height="800">
+                    </div>
+                    <div class="carousel-item">
+                        <img src="{{ package.image4.url }}" alt="Image 3" width="600" height="800">
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#slideshow" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#slideshow" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+
+            <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
+                <h2 class="name" style="font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                    {{ package.name }} package
+
+                
+                    <a href="javascript:void(0);">{{rating.reting_value}}</a>
+                </h2>
+                <hr />
+                <h3 class="price-container" style="font-weight: bold;">
+                    {{package.price}}BD
+                    <small style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">*includes
+                        tax</small>
+                </h3>
+                <div class="certified">
+                    <ul>
+                        <li>
+                            <a href="#"
+                                style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Min
+                                Members<span>{{package.min_members}}</span></a>
+                        </li>
+                        <li>
+                            <a href="#"
+                                style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Max
+                                Members<span>{{package.max_members}}</span></a>
+                        </li>
+                    </ul>
+                </div>
+
+                <hr />
+                <div class="description description-tabs">
+                    <ul id="myTab" class="nav nav-pills">
+                        <li class="active"><a href="#more-information" data-toggle="tab" class="no-margin"
+                                style="margin-left: 7px;">Package Description </a></li>
+
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane active" id="more-information">
+                            <br />
+                            <strong style="font-size: 18px; margin-left: 20px">Description </strong>
+                            <p
+                                style="white-space: pre-line; font-size: 16px; margin-left: 20px; font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
+                                {{ package.product_description }}
+                            </p>
+                        </div>
+
+                    </div>
+                </div>
+                <hr />
+                <div class="container">
+                    <div class="pt-1 mb-4">
+                        <a href="{% url 'help' package.id %}"class="btn btn-secondary">To Add package please click on this button</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end product -->
+</div>
+
+<style>
+    body {
+
+        background: #275657;
+    }
+
+
+    .product-content {
+        border: 1px solid #275657;
+        border-radius: 20px;
+        margin-bottom: 20px;
+        margin-top: 50px;
+        background: #80A894;
+    }
+
+    .product-content .carousel-control.left {
+        margin-left: 0
+    }
+
+    .product-content .product-image {
+        background-color: #fff;
+        display: block;
+        min-height: 238px;
+        overflow: hidden;
+        position: relative
+    }
+
+    .product-content .product-deatil {
+        border-bottom: 1px solid #dfe5e9;
+        padding-bottom: 17px;
+        padding-left: 16px;
+        padding-top: 16px;
+        position: relative;
+        background: #fff
+    }
+
+    .product-content .product-deatil h5 a {
+        color: #2f383d;
+        font-size: 15px;
+        line-height: 19px;
+        text-decoration: none;
+        padding-left: 0;
+        margin-left: 0
+    }
+
+    .product-content .product-deatil h5 a span {
+        color: #9aa7af;
+        display: block;
+        font-size: 13px
+    }
+
+    .product-content .product-deatil span.tag1 {
+        border-radius: 50%;
+        color: #A1BFB0;
+        ;
+        font-size: 15px;
+        height: 50px;
+        padding: 13px 0;
+        position: absolute;
+        right: 10px;
+        text-align: center;
+        top: 10px;
+        width: 50px
+    }
+
+
+
+    .product-content .description {
+        font-size: 12.5px;
+        line-height: 20px;
+        padding: 10px 14px 16px 19px;
+        background: #A1BFB0;
+    }
+
+    .product-content .product-info {
+        padding: 11px 19px 10px 20px
+    }
+
+    .product-content .product-info a.add-to-cart {
+        color: #2f383d;
+        font-size: 13px;
+        padding-left: 16px
+    }
+
+    .product-content name.a {
+        padding: 5px 10px;
+        margin-left: 16px
+    }
+
+    .product-info.smart-form .btn {
+        padding: 6px 12px;
+        margin-left: 12px;
+        margin-top: -10px
+    }
+
+    .product-entry .product-deatil {
+        border-bottom: 1px solid #dfe5e9;
+        padding-bottom: 17px;
+        padding-left: 16px;
+        padding-top: 16px;
+        position: relative
+    }
+
+    .product-entry .product-deatil h5 a {
+        color: #2f383d;
+        font-size: 15px;
+        line-height: 19px;
+        text-decoration: none
+    }
+
+    .product-entry .product-deatil h5 a span {
+        color: #9aa7af;
+        display: block;
+        font-size: 13px
+    }
+
+    .load-more-btn {
+        background-color: #21c2f8;
+        border-bottom: 2px solid #037ca5;
+        border-radius: 2px;
+        border-top: 2px solid #0cf;
+        margin-top: 20px;
+        padding: 9px 0;
+        width: 100%
+    }
+
+    .product-block .product-deatil p.price-container span,
+    .product-content .product-deatil p.price-container span,
+    .product-entry .product-deatil p.price-container span,
+    .shipping table tbody tr td p.price-container span,
+    .shopping-items table tbody tr td p.price-container span {
+        color: #21c2f8;
+        font-family: Lato, sans-serif;
+        font-size: 24px;
+        line-height: 20px
+    }
+
+    .product-info.smart-form .rating label {
+        margin-top: 0
+    }
+
+    .product-wrap .product-image span.tag2 {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        padding: 10px 0;
+        color: #fff;
+        font-size: 11px;
+        text-align: center
+    }
+
+
+
+    .shop-btn {
+        position: relative
+    }
+
+    .shop-btn>span {
+        background: #a90329;
+        display: inline-block;
+        font-size: 10px;
+        box-shadow: inset 1px 1px 0 rgba(0, 0, 0, .1), inset 0 -1px 0 rgba(0, 0, 0, .07);
+        font-weight: 700;
+        border-radius: 50%;
+        padding: 2px 4px 3px !important;
+        text-align: center;
+        line-height: normal;
+        width: 19px;
+        top: -7px;
+        left: -7px
+    }
+
+    .description-tabs {
+        padding: 30px 0 5px !important
+    }
+
+    .description-tabs .tab-content {
+        padding: 10px 0
+    }
+
+    .product-deatil {
+        padding: 30px 30px 50px
+    }
+
+    .product-deatil hr+.description-tabs {
+        padding: 0 0 5px !important
+    }
+
+    .product-deatil .carousel-control.left,
+    .product-deatil .carousel-control.right {
+        background: none !important
+    }
+
+    .product-deatil .glyphicon {
+        color: #3276b1
+    }
+
+    .product-deatil .product-image {
+        border-right: none !important
+    }
+
+    .product-deatil .name {
+        margin-top: 0;
+        margin-bottom: 0
+    }
+
+    .product-deatil .name small {
+        display: block
+    }
+
+    .product-deatil .name a {
+        margin-left: 0
+    }
+
+    .product-deatil .price-container {
+        font-size: 24px;
+        margin: 0;
+        font-weight: 300
+    }
+
+    .product-deatil .price-container small {
+        font-size: 12px
+    }
+
+    .product-deatil .fa-2x {
+        font-size: 16px !important
+    }
+
+    .product-deatil .fa-2x>h5 {
+        font-size: 12px;
+        margin: 0
+    }
+
+    .product-deatil .fa-2x+a,
+    .product-deatil .fa-2x+a+a {
+        font-size: 13px
+    }
+
+    .profile-message ul {
+        list-style: none;
+    }
+
+    .product-deatil .certified {
+        margin-top: 10px
+    }
+
+    .product-deatil .certified ul {
+        padding-left: 0
+    }
+
+    .product-deatil .certified ul li:not(first-child) {
+        margin-left: -3px
+    }
+
+    .product-deatil .certified ul li {
+        display: inline-block;
+        background-color: #A1BFB0;
+        ;
+        border: 1px solid #ccc;
+        padding: 13px 19px
+    }
+
+    .product-deatil .certified ul li:first-child {
+        border-right: none
+    }
+
+    .product-deatil .certified ul li a {
+        text-align: left;
+        font-size: 12px;
+        color: #275657;
+        line-height: 16px;
+        text-decoration: none
+    }
+
+    .product-deatil .certified ul li a span {
+        display: block;
+        color: black;
+        font-size: 13px;
+        font-weight: 700;
+        text-align: center
+    }
+
+    .product-deatil .message-text {
+        width: calc(100% - 70px)
+    }
+
+    @media only screen and (min-width:1024px) {
+        .product-content div[class*=col-md-4] {
+            padding-right: 0
+        }
+
+        .product-content div[class*=col-md-8] {
+            padding: 0 13px 0 0
+        }
+
+        .product-wrap div[class*=col-md-5] {
+            padding-right: 0
+        }
+
+        .product-wrap div[class*=col-md-7] {
+            padding: 0 13px 0 0
+        }
+
+        .product-content .product-image {
+            border-right: 1px solid #dfe5e9
+        }
+
+        .product-content .product-info {
+            position: relative
+        }
+    }
+
+    .message img.online {
+        width: 40px;
+        height: 40px;
+    }
+
+    #myTab li a {
+        font-size: large;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        display: inline-block;
+        padding: 5px;
+        margin-left: 40px;
+        margin-right: 30px;
+        text-decoration: none;
+        color: #275657;
+        text-align: center;
+    }
+
+    #myTab li a::after {
+        content: '\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0\00a0';
+        /* Add a non-breaking space after each word */
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    .btn:hover {
+        background-color: #80A894;
+    }
+
+    select option {
+        background-color: #fff;
+    }
+
+    .ratings i {
+        color: #f1c40f;
+        /* Yellow color */
+        cursor: pointer;
+    }
+
+    .ratings i.text-muted {
+        color: #ccc;
+        /* Gray color */
+    }
+
+
+    /* Container Styles */
+
+
+    /* Button Styles */
+    button {
+        outline: none;
+        height: 40px;
+        text-align: center;
+        width: 130px;
+        border-radius: 40px;
+        background: #fff;
+        border: 2px solid var(--green);
+        color: var(--green);
+        letter-spacing: 1px;
+        text-shadow: 0;
+        font-size: 12px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: all 0.25s ease;
+    }
+
+    button:hover {
+        background: var(--green);
+    }
+
+    button:active {
+        letter-spacing: 2px;
+    }
+
+
+    /* Additional Button States */
+    button.onclic {
+        width: 40px;
+        border-color: var(--gray);
+        border-width: 3px;
+        font-size: 0;
+        border-left-color: var(--green);
+        animation: rotating 2s 0.25s linear infinite;
+    }
+
+    button.onclic:after {
+        content: "";
+    }
+
+    button.onclic:hover {
+        color: var(--green);
+        background: white;
+    }
+
+    button.validate {
+        font-size: 13px;
+        color: white;
+        background: var(--green);
+    }
+
+    button.validate:after {
+        font-family: 'FontAwesome';
+        content: "\f00c";
+    }
+
+    /* Keyframe Animation */
+    @keyframes rotating {
+        from {
+            transform: rotate(0deg);
+        }
+
+        to {
+            transform: rotate(360deg);
+        }
+    }
+
+    .booking-form {
+        background-color: #fff;
+        padding: 50px 20px;
+        -webkit-box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.3);
+        box-shadow: 0px 5px 20px -5px rgba(0, 0, 0, 0.3);
+        border-radius: 4px;
+    }
+
+    .booking-form .form-group {
+        position: relative;
+        margin-bottom: 30px;
+    }
+
+    .booking-form .form-control {
+        background-color: #ebecee;
+        border-radius: 4px;
+        border: none;
+        height: 40px;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        color: #3e485c;
+        font-size: 14px;
+    }
+
+    .booking-form .form-control::-webkit-input-placeholder {
+        color: rgba(62, 72, 92, 0.3);
+    }
+
+    .booking-form .form-control:-ms-input-placeholder {
+        color: rgba(62, 72, 92, 0.3);
+    }
+
+    .booking-form .form-control::placeholder {
+        color: rgba(62, 72, 92, 0.3);
+    }
+
+    .booking-form input[type="date"].form-control:invalid {
+        color: rgba(62, 72, 92, 0.3);
+    }
+
+    .booking-form select.form-control {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+    }
+
+    .booking-form select.form-control+.select-arrow {
+        position: absolute;
+        right: 0px;
+        bottom: 4px;
+        width: 32px;
+        line-height: 32px;
+        height: 32px;
+        text-align: center;
+        pointer-events: none;
+        color: rgba(62, 72, 92, 0.3);
+        font-size: 14px;
+    }
+
+    .booking-form select.form-control+.select-arrow:after {
+        content: '\279C';
+        display: block;
+        -webkit-transform: rotate(90deg);
+        transform: rotate(90deg);
+    }
+
+    .booking-form .form-label {
+        display: inline-block;
+        color: #3e485c;
+        font-weight: 700;
+        margin-bottom: 6px;
+        margin-left: 7px;
+    }
+
+    .booking-form .submit-btn {
+        display: inline-block;
+        color: #fff;
+        background-color: #1e62d8;
+        font-weight: 700;
+        padding: 14px 30px;
+        border-radius: 4px;
+        border: none;
+        -webkit-transition: 0.2s all;
+        transition: 0.2s all;
+    }
+
+    .booking-form .submit-btn:hover,
+    .booking-form .submit-btn:focus {
+        opacity: 0.9;
+    }
+
+    .booking-cta {
+        margin-top: 80px;
+        margin-bottom: 30px;
+    }
+
+    .booking-cta h1 {
+        font-size: 52px;
+        text-transform: uppercase;
+        color: #fff;
+        font-weight: 700;
+    }
+
+    .booking-cta p {
+        font-size: 16px;
+        color: rgba(255, 255, 255, 0.8);
+    }
+</style>
+{% endblock %}

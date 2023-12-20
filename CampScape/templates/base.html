@@ -1,0 +1,142 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampScape</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/carousel/">
+  <link href="../../dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="carousel.css" rel="stylesheet"> 
+  <style>
+    .MyNavbar {
+      background-color: #A1BFB0;
+    }
+
+    .jumbotron {
+      background-color: #A1BFB0;
+    }
+
+    .jumbotron:hover {
+      background-color: #275657;
+      text-decoration: underline;
+    }
+
+    .btn {
+      background-color: #275657;
+      color: #E5E3D7;
+      border-color: #275657;
+      padding: 0.5em 1.5em;
+      border-radius: 2em;
+      box-shadow: 5px 5px 5px rgba(105, 73, 73, 0.15);
+    }
+
+    .btn a {
+      color: #E5E3D7;
+    }
+
+    .btn:hover {
+      border-color: #E5E3D7;
+    }
+
+    .nav-item:hover,
+    .dropdown-item:hover {
+      border-radius: 120px;
+      background-color: #80A894;
+    }
+
+    .footer {
+      position: sticky;
+      bottom: 0;
+      width: 100%;
+      height: 60px;
+      /* Height of the footer */
+
+    }
+    .txt{
+      margin-top: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light MyNavbar py-2">
+    <a class="navbar-brand" href="#">
+      <img src="{% static 'logo3.PNG' %}" alt="..." height="100">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse MyNavItem" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link MyNavItem" href="{% url 'Home' %}">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link MyNavItem" href="{% url 'packages' %}">Packages</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link MyNavItem" href="{% url 'reviewlist'  %}">Reviews</a>
+        </li>
+      </ul>
+      {% if user.is_authenticated %}
+      
+      <div class="btn-group mr-2" role="group" aria-label="Second group">
+        <button type="button" class="btn btn-default btn-sm"><a href="{% url 'logout' %}"> Logout </a></button>
+        <button type="button" class="btn btn-default btn-sm " disabled><h6 class="txt"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="" fill="currentColor"
+          class="bi bi-person" viewBox="0 0 16 16">
+          <path
+            d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4Zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10Z" />
+        </svg>   {{user.username|default:'Guest'}}</h6>
+          
+
+        </button>
+      </div>
+
+      {% else %}
+
+      <button class="btn" type="submit"><a href="{% url 'login' %}"> Login </a></button>
+
+
+      {% endif %}
+
+    </div>
+  </nav>
+
+  <div class="container">
+    {% block content %}
+    {% endblock %}
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+
+
+
+  <footer class="bg-body-tertiary text-center">
+    <!-- Grid container -->
+    <div class="container p-4"></div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color:#A1BFB0">
+      © 2023 Copyright:
+      <a class="text-body" href="#">CampScape.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+</body>
+
+</html>

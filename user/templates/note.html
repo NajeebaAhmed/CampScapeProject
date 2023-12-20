@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="vh-100">
+<section class="vh-50" style="background-color: #A1BFB0; margin-top: 300px; border-radius: 40px;">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col col-xl-10">
+          <div class="card" style="border-radius: 1rem; background-color: #fff;">
+            <div class="row g-0">
+              <div class="col-md-6 col-lg-5 d-none d-md-block">
+                <img src="{% static '../static/campLogin.jpg'%}"
+                  alt="login form" class="img-fluid"  style="border-radius: 1rem 0 0 1rem;" />
+              </div>
+              <div class="col-md-6 col-lg-7 d-flex align-items-center">
+                <div class="card-body p-4 p-lg-5 text-black">
+                    <div class="d-flex align-items-center mb-3 pb-1">
+                        <span class="h2 fw-bold mb-0">Welcome to our website! You have been registered successfully <i class="fas fa-check-circle ms-2 text-success fa-2x"></i></span>
+                    </div>
+                </div>
+            </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+  <style>
+    body {
+        background-color: #275657;;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+        height: 100%;
+    }
+
+</style>
+{% endblock %}
